@@ -1,0 +1,41 @@
+package com.dsa.linkedlist;
+
+import java.util.Scanner;
+
+public class LinkedListConstruction {
+	static class Node {
+		int data;
+		Node next;
+
+		Node(int data) {
+			this.data = data;
+			this.next = null;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		Node head = null;
+		for (int i = 0; i < n; i++) {
+			int data = sc.nextInt();
+			Node newNode = new Node(data);
+			if (head == null) {
+				head = newNode;
+			} else {
+				Node current = head;
+				while (current.next != null) {
+					current = current.next;
+				}
+				current.next = newNode;
+			}
+		}
+		Node current = head;
+		while (current != null) {
+			System.out.print(current.data + " ");
+			current = current.next;
+		}
+		sc.close();
+	}
+
+}
